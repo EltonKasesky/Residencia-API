@@ -1,0 +1,3 @@
+2025-05-19 18:39:21.586639-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM PROPRIETARIO VEICULO [*]VEICULO"; SQL statement:
+SELECT * FROM PROPRIETARIO VEICULO VEICULO [42000-232]
