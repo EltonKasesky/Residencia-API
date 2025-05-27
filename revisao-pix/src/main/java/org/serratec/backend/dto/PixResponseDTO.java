@@ -1,4 +1,6 @@
 package org.serratec.backend.dto;
 
-public class PixResponseDTO {
+import java.time.LocalDateTime;
+
+public record PixResponseDTO(Long id, LocalDateTime data, Double valor, ContaResponseDTO contaOrigem, ContaResponseDTO contaDestino) {
 }

@@ -1,0 +1,20 @@
+2025-05-27 16:27:46.113563-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PACIENTE" already exists; SQL statement:
+create table paciente(id_paciente serial primary key, nome varchar(60)) [42101-232]
+2025-05-27 16:27:46.126592-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEDICO" already exists; SQL statement:
+create table medico(id_medico serial primary key, nome varchar(60)) [42101-232]
+2025-05-27 16:27:46.129608-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EXAME" already exists; SQL statement:
+create table exame(id_exame serial primary key , tipo varchar(50), valor float) [42101-232]
+2025-05-27 16:27:46.133615-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONSULTA" already exists; SQL statement:
+create table consulta(id_consulta serial primary key, data_consulta date, id_paciente integer,id_medico integer,
+foreign key (id_paciente) REFERENCES paciente (id_paciente),
+foreign key (id_medico) REFERENCES medico (id_medico)) [42101-232]
+2025-05-27 16:27:46.136614-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PROCEDIMENTOS" already exists; SQL statement:
+create table procedimentos(id_procedimento serial primary key, quantidade integer,
+valor_procedimento float,
+id_consulta integer, foreign key (id_consulta) references consulta(id_consulta),
+id_exame integer, foreign key (id_exame) references exame(id_exame)) [42101-232]

@@ -1,14 +1,12 @@
 package org.serratec.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -19,12 +17,10 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome não pode ser vazio ou nulo!")
     private String nome;
-
-    @Email(message = "Foi inserido uma formatação de email invalida!")
     private String email;
-
-    @NotBlank
     private String senha;
+
+    @OneToMany(mappedBy = "id.usuario")
+    private Set<UsuarioPerfil> usuarioPerfis = new HashSet<>();
 }
